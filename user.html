@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>CareConnect | User Dashboard</title><link rel="stylesheet" href="css/style.css"></head>
+<body class="dashboard">
+<header class="dash-top"><div class="brand"><span class="brand-icon">✚</span> CareConnect</div><div class="profile"><div class="profile-icon">👤</div><div><strong id="userName">Patient</strong><small id="userEmail"></small></div><button class="btn btn-outline" onclick="logout()">Logout</button></div></header>
+<div class="dash-layout">
+<aside class="sidebar">
+<button class="side-link active" onclick="showSection('overview',this)">📊 Overview</button>
+<button class="side-link" onclick="showSection('book',this)">📅 Book Appointment</button>
+<button class="side-link" onclick="showSection('appointments',this)">📋 My Appointments</button>
+<button class="side-link" onclick="showSection('profile',this)">👤 Profile</button>
+</aside>
+<main class="dash-main">
+<section id="overview" class="dash-section active"><h1>Patient Dashboard</h1><p class="muted">Manage your healthcare appointments.</p>
+<div class="stats"><div class="stat"><strong id="upcomingCount">0</strong><small>Upcoming</small></div><div class="stat"><strong id="totalCount">0</strong><small>Total appointments</small></div><div class="stat"><strong>4</strong><small>Available doctors</small></div><div class="stat"><strong>10+</strong><small>Specialities</small></div></div>
+<div class="panel"><div class="panel-head"><h2>Next Appointment</h2><button class="btn btn-primary" onclick="showSection('book')">+ Book New</button></div><div id="nextAppointment"></div></div></section>
+
+<section id="book" class="dash-section"><h1>Book Appointment</h1><p class="muted">Select a doctor and convenient time.</p>
+<div class="panel"><form onsubmit="bookAppointment(event)">
+<label>Doctor<select id="doctor" required></select></label>
+<label>Date<input id="date" type="date" required></label>
+<label>Time<select id="time" required><option value="">Select time</option><option>09:00 AM</option><option>10:00 AM</option><option>11:00 AM</option><option>02:00 PM</option><option>03:00 PM</option><option>04:00 PM</option><option>05:00 PM</option></select></label>
+<label>Reason for visit<textarea id="reason" rows="3" placeholder="Briefly describe the reason"></textarea></label>
+<button class="btn btn-primary" type="submit">Confirm Appointment</button></form><p id="bookMessage" class="message"></p></div></section>
+
+<section id="appointments" class="dash-section"><h1>My Appointments</h1><div class="panel"><div class="table-wrap"><table><thead><tr><th>Doctor</th><th>Speciality</th><th>Date</th><th>Time</th><th>Status</th><th>Action</th></tr></thead><tbody id="appointmentTable"></tbody></table></div></div></section>
+
+<section id="profile" class="dash-section"><h1>My Profile</h1><div class="panel"><div class="profile"><div class="profile-icon">👤</div><div><h2 id="profileName"></h2><p id="profileEmail" class="muted"></p><span class="badge">Patient</span></div></div></div></section>
+</main></div>
+<script src="js/user.js"></script></body></html>

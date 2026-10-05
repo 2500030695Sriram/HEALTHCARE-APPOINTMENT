@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>CareConnect | Admin Dashboard</title><link rel="stylesheet" href="css/style.css"></head>
+<body class="dashboard">
+<header class="dash-top"><div class="brand"><span class="brand-icon">✚</span> CareConnect <span class="badge">ADMIN</span></div><div class="profile"><div class="profile-icon">🛡️</div><strong id="adminName">Admin</strong><button class="btn btn-outline" onclick="logout()">Logout</button></div></header>
+<div class="dash-layout">
+<aside class="sidebar">
+<button class="side-link active" onclick="showSection('dashboard',this)">📊 Dashboard</button>
+<button class="side-link" onclick="showSection('appointments',this)">📋 Appointments</button>
+<button class="side-link" onclick="showSection('doctors',this)">👨‍⚕️ Doctors</button>
+<button class="side-link" onclick="showSection('users',this)">👥 Users</button>
+</aside>
+<main class="dash-main">
+<section id="dashboard" class="dash-section active"><h1>Admin Dashboard</h1><p class="muted">Monitor and manage the healthcare appointment system.</p>
+<div class="stats"><div class="stat"><strong id="statAppointments">0</strong><small>Total appointments</small></div><div class="stat"><strong id="statConfirmed">0</strong><small>Confirmed</small></div><div class="stat"><strong id="statUsers">0</strong><small>Registered users</small></div><div class="stat"><strong>4</strong><small>Doctors</small></div></div>
+<div class="two-col"><div class="panel"><h2>System Modules</h2><p>✓ Admin Module</p><p>✓ User/Patient Module</p><p>✓ Authentication using Local Storage</p><p>✓ Appointment management</p></div><div class="panel"><h2>Project Technology</h2><p><span class="badge">HTML</span> <span class="badge">CSS</span> <span class="badge">JavaScript</span></p><p class="muted">UI uses CSS Grid and Flexbox. No backend or external framework is required.</p></div></div></section>
+
+<section id="appointments" class="dash-section"><h1>Manage Appointments</h1><div class="panel"><div class="table-wrap"><table><thead><tr><th>Patient</th><th>Doctor</th><th>Date</th><th>Time</th><th>Status</th><th>Action</th></tr></thead><tbody id="adminAppointmentTable"></tbody></table></div></div></section>
+
+<section id="doctors" class="dash-section"><h1>Doctor Management</h1><div class="panel"><div class="panel-head"><h2>Available Doctors</h2><span class="badge">4 Doctors</span></div><div class="doctor-grid" id="adminDoctors"></div></div></section>
+
+<section id="users" class="dash-section"><h1>Registered Users</h1><div class="panel"><div class="table-wrap"><table><thead><tr><th>Name</th><th>Email</th><th>Role</th></tr></thead><tbody id="userTable"></tbody></table></div></div></section>
+</main></div>
+<script src="js/admin.js"></script></body></html>
